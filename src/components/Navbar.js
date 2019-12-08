@@ -59,7 +59,7 @@ class Navbar extends Component {
 						</a>
 
 						{/*Lado derecho del navBar*/}
-						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
+						<a href='https://ioled-dev-248517.appspot.com/' style={{flexgrow: 1}}>
 							<Button className={classes.button}>Mi iOLED</Button>
 						</a>
 						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
