@@ -1,11 +1,12 @@
 //@ts-nocheck
 import React, {Component} from 'react';
-import ioledLogo from '../images/ioled.png';
+import ioledLogo from '../images/logo.png';
 
 // material-ui components.
 import {withStyles, createStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 // Material-ui component styles.
 const styles = () =>
@@ -14,7 +15,8 @@ const styles = () =>
 			position: 'relative',
 		},
 		appbar: {
-			backgroundColor: '#f8f9fa',
+			backgroundColor: '#2C3145',
+			borderRadius: '0px 0px 5px 5px',
 		},
 		logo: {
 			width: '110px',
@@ -34,6 +36,9 @@ const styles = () =>
 			color: '#6B757E',
 			fontSize: '12px',
 		},
+		button:{
+			color: 'white'
+		}
 	});
 
 class Navbar extends Component {
@@ -48,9 +53,19 @@ class Navbar extends Component {
 			<div className={classes.root}>
 				<AppBar className={classes.appbar} position="static">
 					<Toolbar>
+						{/* Lado izquierdo del nabvar*/}
 						<a href={user ? '/dashboard' : '/'} style={{flexGrow: 1}}>
 							<img className={classes.logo} src={ioledLogo} alt="ioled" />
 						</a>
+
+						{/*Lado derecho del navBar*/}
+						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
+							<Button className={classes.button}>Mi iOLED</Button>
+						</a>
+						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
+							<Button className={classes.button}>WEB iOLED</Button>
+						</a>
+
 					</Toolbar>
 				</AppBar>
 			</div>
