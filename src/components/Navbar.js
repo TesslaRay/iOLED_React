@@ -37,7 +37,21 @@ const styles = () =>
 			fontSize: '12px',
 		},
 		button:{
-			color: 'white'
+			color: 'white',
+			'&:hover':{
+				border:'3px solid white',
+				boxSizing: 'border-box',
+				borderRadius: 50
+			}
+		},
+		buttonRounded:{
+			color: '#00EAA6',
+			paddingRight: '10px',
+			'&:hover':{
+				border:'3px solid #00EAA6',
+				boxSizing: 'border-box',
+				borderRadius: 50
+			}
 		}
 	});
 
@@ -90,7 +104,7 @@ class Navbar extends Component {
 
 						{/*Lado derecho del navBar*/}
 						<a href='https://ioled-dev-248517.appspot.com/' style={{flexgrow: 1}}>
-							<Button className={classes.button}>Mi iOLED</Button>
+							<Button className={classes.button}>Mi iOLED</Button>			
 						</a>
 						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
 							<Button className={classes.button}>WEB iOLED</Button>
