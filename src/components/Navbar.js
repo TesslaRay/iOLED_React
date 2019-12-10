@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import ioledLogo from '../images/logo.png';
 
 // material-ui components.
@@ -46,6 +46,36 @@ class Navbar extends Component {
 	capitalize(str) {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	}	
+
+	// Render the navbar depending the auth state.
+	authRender() {
+		const {login = false} = this.props;
+
+		switch (login) {
+			case null:
+				return (
+					<Fragment>
+						null
+					</Fragment>
+				);
+			case false:
+				return (
+					<Fragment>
+						<Button href="">Login</Button>
+					</Fragment>
+				);
+			default:
+				return (
+					<Fragment>
+						imagen
+						<Button href="">
+							Logout
+						</Button>
+					</Fragment>
+				);
+		}
+	}
+
 	// Render the component.
 	render() {
 		const {classes, user} = this.props;
@@ -66,6 +96,8 @@ class Navbar extends Component {
 							<Button className={classes.button}>WEB iOLED</Button>
 						</a>
 
+						{this.authRender()}														
+						
 					</Toolbar>
 				</AppBar>
 			</div>
