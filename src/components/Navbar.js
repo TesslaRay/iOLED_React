@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import ioledLogo from '../images/logo.png';
 
 // material-ui components.
@@ -56,6 +56,10 @@ const styles = () =>
 	});
 
 class Navbar extends Component {
+	state ={
+		login: true
+
+	};
 	// String capitalization.
 	capitalize(str) {
 		return str.charAt(0).toUpperCase() + str.slice(1);
@@ -63,6 +67,7 @@ class Navbar extends Component {
 	// Render the component.
 	render() {
 		const {classes, user} = this.props;
+		const {login} = this.state;
 		return (
 			<div className={classes.root}>
 				<AppBar className={classes.appbar} position="static">
@@ -73,12 +78,14 @@ class Navbar extends Component {
 						</a>
 
 						{/*Lado derecho del navBar*/}
-						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
+						<a href='https://ioled-dev-248517.appspot.com' style={{flexgrow: 1}}>
 							<Button className={classes.buttonRounded}>Mi iOLED</Button>
 						</a>
 						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
 							<Button className={classes.button}>WEB iOLED</Button>
 						</a>
+
+
 
 					</Toolbar>
 				</AppBar>
@@ -86,5 +93,12 @@ class Navbar extends Component {
 		);
 	}
 }
+
+
+
+
+
+
+
 
 export default (withStyles(styles)(Navbar));
