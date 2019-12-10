@@ -64,6 +64,36 @@ class Navbar extends Component {
 	capitalize(str) {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	}	
+
+	// Render the navbar depending the auth state.
+	authRender() {
+		const {login = false} = this.props;
+
+		switch (login) {
+			case null:
+				return (
+					<Fragment>
+						null
+					</Fragment>
+				);
+			case false:
+				return (
+					<Fragment>
+						<Button href="">Login</Button>
+					</Fragment>
+				);
+			default:
+				return (
+					<Fragment>
+						imagen
+						<Button href="">
+							Logout
+						</Button>
+					</Fragment>
+				);
+		}
+	}
+
 	// Render the component.
 	render() {
 		const {classes, user} = this.props;
@@ -78,15 +108,15 @@ class Navbar extends Component {
 						</a>
 
 						{/*Lado derecho del navBar*/}
-						<a href='https://ioled-dev-248517.appspot.com' style={{flexgrow: 1}}>
-							<Button className={classes.buttonRounded}>Mi iOLED</Button>
+						<a href='https://ioled-dev-248517.appspot.com/' style={{flexgrow: 1}}>
+							<Button className={classes.button}>Mi iOLED</Button>			
 						</a>
 						<a href='https://www.ioled.cl/' style={{flexgrow: 1}}>
 							<Button className={classes.button}>WEB iOLED</Button>
 						</a>
 
-
-
+						{this.authRender()}														
+						
 					</Toolbar>
 				</AppBar>
 			</div>
